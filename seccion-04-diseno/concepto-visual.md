@@ -1,76 +1,64 @@
 # Concepto Visual
 
-## Dirección Artística: "Quest Log"
+## "Quest Log"
 
 ### Filosofía de Diseño
 
 > **"Un portafolio profesional con la atmósfera de un videojuego RPG, donde cada sección es una nueva área por explorar y cada habilidad es un skill desbloqueado."**
 
-El concepto integra elementos de gamificación de manera sutil y profesional, sin caer en lo infantil o saturado.
+El concepto integra elementos de gamificación de manera sutil y profesional, sin caer en lo infantil o saturado. Haciendo que esto sea un viaje.
 
----
+***
 
 ## Inspiración Visual
 
+<figure><img src="../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+
 ### Fuentes de Inspiración
 
-| Fuente | Elemento Adaptado |
-|--------|-------------------|
-| **Cyberpunk 2077** | Neones, contrastes, futurismo |
-| **Destiny 2 UI** | Clarity en información densa, clean lines |
-| **Persona 5** | Uso audaz del color, tipografía |
-| **Adham Dannaway** | Balance dev/design, dark mode |
-| **Run Wild** | Animaciones fluidas, personalidad |
+| Fuente             | Elemento Adaptado                    |
+| ------------------ | ------------------------------------ |
+| **Cyberpunk 2077** | Neones, contrastes, futurismo        |
+| **Expedition 33**  | Clasico, apocaliptico, contrastante, |
+| **Nier Automata**  | Tecnico, mecanico                    |
+
+<figure><img src="../.gitbook/assets/Captura de pantalla 2026-03-27 a las 9.34.07 p.m..png" alt=""><figcaption></figcaption></figure>
+
+<figure><img src="../.gitbook/assets/Captura de pantalla 2026-03-27 a las 9.34.34 p.m..png" alt=""><figcaption></figcaption></figure>
 
 ### Moodboard
 
-```
-┌─────────────────────────────────────────────────────────────┐
-│                                                             │
-│   CYBERPUNK       MINIMAL          RPG ELEMENTS             │
-│                                                             │
-│  ┌─────────┐     ┌─────────┐      ┌─────────┐              │
-│  │ ▓▓▓▓▓▓▓ │     │         │      │  ⚔️ 🛡️  │              │
-│  │ ▓░░░░░▓ │     │  ───    │      │  ❤️ 💎  │              │
-│  │ ▓░▓▓▓░▓ │     │   │     │      │  ⭐ 📊  │              │
-│  │ ▓░░░░░▓ │     │   ▼     │      │         │              │
-│  │ ▓▓▓▓▓▓▓ │     │         │      │  SKILL  │              │
-│  └─────────┘     └─────────┘      └─────────┘              │
-│   Neón/Cyan       Clean            Progress bars            │
-│   Dark base       Hierarchy        Stats                    │
-│                                                             │
-└─────────────────────────────────────────────────────────────┘
-```
-
----
+***
 
 ## Elementos de Gamificación (Sutiles)
 
 ### 1. Metáfora de "Quest"
 
-| Elemento Tradicional | Versión "Quest Log" | Implementación |
-|---------------------|---------------------|----------------|
-| Proyectos | Misiones completadas | Cards con badge "Quest Completed" |
-| Habilidades | Skills desbloqueados | Progress bars tipo RPG |
-| Experiencia | Nivel profesional | "Lv. 5 Full Stack" |
-| Disponibilidad | Estado de "Listo para aventura" | Badge 🟢 "Available for Quests" |
-| Educación | Habilidades aprendidas | Iconos de "skill books" |
+| Elemento Tradicional | Versión "Quest Log"             | Implementación                        |
+| -------------------- | ------------------------------- | ------------------------------------- |
+| Proyectos            | Misiones completadas            | Cards con badge "Quest Completed"     |
+| Habilidades          | Skills desbloqueados            | Progress bars tipo RPG                |
+| Experiencia          | Nivel profesional               | "Lv. 5 Full Stack", como con la edad. |
+| Disponibilidad       | Estado de "Listo para aventura" | Badge 🟢 "In duty"                    |
+| Educación            | Habilidades aprendidas          | Iconos de "skill books"               |
 
 ### 2. Lenguaje Visual RPG
 
 **En lugar de:**
-- ❌ "Experiencia laboral"
-- ❌ "Habilidades técnicas"
-- ❌ "Proyectos"
+
+* &#x20;"Experiencia laboral"
+* &#x20;"Habilidades técnicas"
+* &#x20;"Proyectos"
 
 **Usar:**
-- ✅ "Quest Log"
-- ✅ "Skill Tree"
-- ✅ "Completed Quests"
 
-**Nota:** Esta terminología se usa sutilmente, sin sacrificar claridad profesional.
+* &#x20;"Quest Log"
+* &#x20;"Skill Tree"
+* &#x20;"Completed Quests"
 
----
+**Nota:** Esta terminología se usa sutilmente, sin sacrificar claridad profesional. Por eso, se decidio mezclar ambas cosas, para que las personas que no conozcan el contexto, no se pierdan.
+
+***
 
 ## Estética Neón + Línea Clásica
 
@@ -99,137 +87,73 @@ El concepto integra elementos de gamificación de manera sutil y profesional, si
 
 ### Aplicación de Neón
 
-| Elemento | Efecto | Intensidad |
-|----------|--------|------------|
-| CTA Button | Glow on hover | 30% opacity |
-| Accent borders | Static glow | 20% opacity |
-| Active states | Pulsing subtle | CSS animation |
-| Hover cards | Border glow | 40% opacity |
+| Elemento       | Efecto         | Intensidad    |
+| -------------- | -------------- | ------------- |
+| CTA Button     | Glow on hover  | 30% opacity   |
+| Accent borders | Static glow    | 20% opacity   |
+| Active states  | Pulsing subtle | CSS animation |
+| Hover cards    | Border glow    | 40% opacity   |
 
----
-
-## Componentes Visuales Clave
-
-### 1. Hero Section
-
-```
-┌─────────────────────────────────────────────────────────┐
-│                                                         │
-│              TAMARA PALMA                               │
-│         ~~~~~~~~~~~~~~~~~~~~                            │
-│                                                         │
-│    Full Stack Developer & UX Designer                   │
-│                                                         │
-│    [⚛️] [🐍] [⬢] [📐]  ← Tech icons con glow          │
-│                                                         │
-│    ┌─────────────────────────────┐                      │
-│    │  INICIAR CONTACTO  ▶       │  ← CTA con glow      │
-│    └─────────────────────────────┘                      │
-│                                                         │
-│    Background: Subtle gradient from #1a1a1a to #0f172a  │
-│               with noise texture                        │
-│                                                         │
-└─────────────────────────────────────────────────────────┘
-```
-
-### 2. Skill Cards
-
-```
-┌─────────────────────────────┐
-│ [LENGUAJE]                  │
-│                             │
-│      ╭──────────╮           │
-│      │   ⚛️     │  ← Icon   │
-│      ╰──────────╯     glow  │
-│                             │
-│      React                  │
-│                             │
-│      ━━━━━━━━━━━━━━         │
-│      ████████░░░░░░ 80%     │
-│      ━━━━━━━━━━━━━━         │
-│                             │
-└─────────────────────────────┘
-```
-
-### 3. Timeline Experience
-
-```
-    ╭────╮
-    │ ●  │  ← Glowing dot
-    ╰────╯
-      │
-      ├──────────────────┐
-      │                  │
-      │  2025 - Presente │
-      │                  │
-      │  Senior Developer│
-      │  🏦 iProspect    │  ← Gold accent
-      │                  │
-      │  Descripción...  │
-      │                  │
-      └──────────────────┘
-      │
-      ▼
-    ╭────╮
-    │ ○  │  ← Next item
-    ╰────╯
-```
-
----
+***
 
 ## Micro-interacciones
 
 ### Hover States
 
-| Elemento | Efecto | Duración |
-|----------|--------|----------|
-| Cards | Lift + border glow | 250ms |
-| Buttons | Fill + glow increase | 200ms |
-| Links | Underline slide | 150ms |
-| Icons | Scale 1.1 | 200ms |
+| Elemento | Efecto               | Duración |
+| -------- | -------------------- | -------- |
+| Cards    | Lift + border glow   | 250ms    |
+| Buttons  | Fill + glow increase | 200ms    |
+| Links    | Underline slide      | 150ms    |
+| Icons    | Scale 1.1            | 200ms    |
 
 ### Scroll Animations
 
-| Trigger | Efecto |
-|---------|--------|
-| Section enter | Fade up + opacity |
-| Cards | Staggered fade in |
-| Timeline | Draw line animation |
+| Trigger       | Efecto              |
+| ------------- | ------------------- |
+| Section enter | Fade up + opacity   |
+| Cards         | Staggered fade in   |
+| Timeline      | Draw line animation |
 
----
+***
 
 ## Responsive Adaptation
 
 ### Desktop
-- Sidebar navigation visible
-- Grid completo de skills (4 cols)
-- Timeline completa
-- Efectos neón al 100%
+
+* Sidebar navigation visible
+* Grid completo de skills (4 cols)
+* Timeline completa
+* Efectos neón al 100%
 
 ### Mobile
-- Bottom tab navigation
-- Skills en accordion (ahorro espacio)
-- Timeline simplificada
-- Efectos neón reducidos (performance)
 
----
+* Bottom tab navigation
+* Skills en accordion (ahorro espacio)
+* Timeline simplificada
+* Efectos neón reducidos (performance)
+
+***
 
 ## Assets Necesarios
 
 ### Iconos
-- Tech stack (SVG, monocromáticos)
-- UI icons (tabler-icons o similar)
-- RPG-inspired icons sutiles
+
+* Tech stack (SVG, monocromáticos)
+* UI icons (tabler-icons o similar)
+* RPG-inspired icons sutiles
 
 ### Imágenes
-- Avatar/placeholder con gradiente
-- Opcional: Screenshots de proyectos
+
+* Avatar/placeholder con gradiente
+* Opcional: Screenshots de proyectos
 
 ### Fuentes
-- Inter (Google Fonts)
-- Fira Code (monospace)
 
----
+* Inter (Google Fonts)
+* Cinzel (Google Fonts)
+
+***
 
 ## Decisiones Clave
 
@@ -243,8 +167,8 @@ El concepto integra elementos de gamificación de manera sutil y profesional, si
 
 ### ❌ Lo que NO incluir
 
-1. **Sonidos** — No apropiado para portafolio profesional
-2. **Animaciones excesivas** — Distractor, afecta performance
+1. **Sonidos** — No apropiado para portafolio profesional, insonoro.
+2. **Animaciones excesivas** — Distractor, afecta performance, animaciones para darle dinamismo.
 3. **Tipografía "gaming"** — Puede parecer amateur
 4. **Elementos 3D complejos** — Problemas de performance
-5. **Story/narrativa larga** — El usuario quiere información rápida
+5. **Story/narrativa larga** — El usuario quiere información rápida, condesar info

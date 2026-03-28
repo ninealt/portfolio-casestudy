@@ -4,7 +4,7 @@
 
 Este sistema de diseño define los cimientos visuales del portafolio, asegurando consistencia, accesibilidad y diferenciación.
 
----
+***
 
 ## Sistema de Color
 
@@ -32,49 +32,17 @@ Este sistema de diseño define los cimientos visuales del portafolio, asegurando
 --error: #f87171;
 ```
 
-### Visualización de Paleta
-
-```
-┌─────────────────────────────────────────────────────────────┐
-│ BACKGROUNDS                                                 │
-│                                                             │
-│ ┌──────────────┐  ┌──────────────┐  ┌──────────────┐       │
-│ │              │  │              │  │              │       │
-│ │   #1a1a1a    │  │   #2d2d2d    │  │   #3d3d3d    │       │
-│ │    Base      │  │   Elevated   │  │    Hover     │       │
-│ │              │  │              │  │              │       │
-│ └──────────────┘  └──────────────┘  └──────────────┘       │
-│                                                             │
-├─────────────────────────────────────────────────────────────┤
-│ ACCENTS                                                     │
-│                                                             │
-│ ┌──────────────────────┐  ┌──────────────────────┐         │
-│ │                      │  │                      │         │
-│ │      #00d4ff         │  │      #ffd700         │         │
-│ │       Cyan           │  │       Gold           │         │
-│ │   Tech, Moderno      │  │  Premium, Éxito      │         │
-│ │                      │  │                      │         │
-│ └──────────────────────┘  └──────────────────────┘         │
-│                                                             │
-├─────────────────────────────────────────────────────────────┤
-│ TEXT                                                        │
-│                                                             │
-│ ████████████ 100%  Primary     - Títulos                    │
-│ ██████░░░░░░  60%  Secondary   - Body                       │
-│ ███░░░░░░░░░  38%  Tertiary    - Captions, hints            │
-│                                                             │
-└─────────────────────────────────────────────────────────────┘
-```
-
 ### Rationale del Color
 
-| Color | Justificación |
-|-------|---------------|
-| **Dark theme (#1a1a1a)** | Moderno, reduce fatiga, destaca contenido, trending en tech |
-| **Cyan (#00d4ff)** | Asociado con tecnología, innovación, energía, contraste óptimo en oscuro |
-| **Gold (#ffd700)** | Jerarquiza información crítica, añade calidez, destaca logros |
+| Color                    | Justificación                                                            |
+| ------------------------ | ------------------------------------------------------------------------ |
+| **Dark theme (#1a1a1a)** | Moderno, reduce fatiga, destaca contenido, trending en tech              |
+| **Cyan (#00d4ff)**       | Asociado con tecnología, innovación, energía, contraste óptimo en oscuro |
+| **Gold (#ffd700)**       | Jerarquiza información crítica, añade calidez, destaca logros            |
 
----
+<figure><img src="../.gitbook/assets/Captura de pantalla 2026-03-27 a las 9.25.21 p.m..png" alt=""><figcaption></figcaption></figure>
+
+***
 
 ## Tipografía
 
@@ -85,22 +53,26 @@ Este sistema de diseño define los cimientos visuales del portafolio, asegurando
 font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 
 /* Monospace for code/technical text */
-font-family: 'Fira Code', 'SF Mono', Monaco, monospace;
+font-family: 'Cinzel', 'SF Mono', Monaco, monospace;
 ```
+
+<figure><img src="../.gitbook/assets/Captura de pantalla 2026-03-27 a las 12.33.03 p.m..png" alt=""><figcaption></figcaption></figure>
+
+<figure><img src="../.gitbook/assets/Captura de pantalla 2026-03-27 a las 12.27.15 p.m..png" alt=""><figcaption></figcaption></figure>
 
 ### Escala Tipográfica
 
-| Elemento | Tamaño | Weight | Line Height | Usage |
-|----------|--------|--------|-------------|-------|
-| Display | 72px | 700 | 1.1 | Hero name |
-| H1 | 48px | 700 | 1.2 | Section titles |
-| H2 | 32px | 600 | 1.3 | Subsection titles |
-| H3 | 24px | 600 | 1.4 | Card titles |
-| H4 | 20px | 600 | 1.4 | Subtitles |
-| Body Large | 18px | 400 | 1.6 | Lead paragraphs |
-| Body | 16px | 400 | 1.6 | General text |
-| Small | 14px | 400 | 1.5 | Secondary text |
-| Caption | 12px | 500 | 1.4 | Labels, tags |
+| Elemento   | Tamaño | Weight | Line Height | Usage             |
+| ---------- | ------ | ------ | ----------- | ----------------- |
+| Display    | 72px   | 700    | 1.1         | Hero name         |
+| H1         | 48px   | 700    | 1.2         | Section titles    |
+| H2         | 32px   | 600    | 1.3         | Subsection titles |
+| H3         | 24px   | 600    | 1.4         | Card titles       |
+| H4         | 20px   | 600    | 1.4         | Subtitles         |
+| Body Large | 18px   | 400    | 1.6         | Lead paragraphs   |
+| Body       | 16px   | 400    | 1.6         | General text      |
+| Small      | 14px   | 400    | 1.5         | Secondary text    |
+| Caption    | 12px   | 500    | 1.4         | Labels, tags      |
 
 ### Visualización
 
@@ -116,11 +88,11 @@ Caption   - LABEL TAG (12px, Medium)
 
 ### Rationale Tipográfico
 
-- **Inter:** Legibilidad óptima en pantallas, diseñada específicamente para UI
-- **System fonts fallback:** Performance, carga instantánea
-- **Scale jerárquico:** Ratio de 1.25 (major third) para armonía visual
+* **Inter:** Legibilidad óptima en pantallas, diseñada específicamente para UI
+* **System fonts fallback:** Performance, carga instantánea
+* **Scale jerárquico:** Ratio de 1.25 (major third) para armonía visual
 
----
+***
 
 ## Espaciado y Grid
 
@@ -168,14 +140,14 @@ Mobile (< 768px):
 
 ### Padding por Componente
 
-| Componente | Padding |
-|------------|---------|
-| Cards | 24px |
-| Buttons | 12px 24px |
-| Section containers | 48px 0 |
-| Input fields | 12px 16px |
+| Componente         | Padding   |
+| ------------------ | --------- |
+| Cards              | 24px      |
+| Buttons            | 12px 24px |
+| Section containers | 48px 0    |
+| Input fields       | 12px 16px |
 
----
+***
 
 ## Sistema de Componentes
 
@@ -190,197 +162,144 @@ Mobile (< 768px):
 ```
 
 **Props:**
-- Position: Fixed top
-- Z-index: 1000
-- Background: `rgba(26, 26, 26, 0.8)` + `backdrop-filter: blur(12px)`
+
+* Position: Fixed top
+* Z-index: 1000
+* Background: `rgba(26, 26, 26, 0.8)` + `backdrop-filter: blur(12px)`
 
 **Estados:**
-- Default: Semi-transparente
-- Scrolled: Opacidad aumentada
 
----
+* Default: Semi-transparente
+* Scrolled: Opacidad aumentada
+
+***
 
 ### 2. Sidebar Navigation
 
-```
-┌──────────┐
-│ [Avatar] │
-│  Tamara  │
-│  Palma   │
-├──────────┤
-│    🏠    │ Home
-│    ⚡    │ Skills
-│    💼    │ Exp
-│    🎓    │ Edu
-│    ✉️    │ Contact
-└──────────┘
-Width: 240px
-Fixed left
-```
+Función: Acceso rápido a secciones
 
 **Interacciones:**
-- Hover: Background highlight
-- Active: Accent border left
 
----
+* Hover: Background highlight
+* Active: Accent border left
+
+***
 
 ### 3. Hero Card (Profile Card)
 
-```
-┌─────────────────────────────┐
-│  ┌────┐                     │
-│  │ 👤 │  Full Stack Lv.5    │
-│  └────┘                     │
-│                             │
-│  React    [████░░░░░] 80%   │
-│  Python   [██████░░░] 90%   │
-│  UX       [████░░░░░] 75%   │
-│                             │
-│  🟢 Disponible para quests  │
-│  📍 Remoto desde Quillota   │
-└─────────────────────────────┘
-Background: bg-secondary
-Border: 1px solid border-subtle
-Border-radius: 12px
-```
+\- Función: Resumen visual de skills y estado
 
-**Features:**
-- Glassmorphism effect
-- Skill progress bars
-- Status indicator
+\- Componentes:
 
----
+\- Badge de rol
+
+\- Imagen de perfil (placeholder con gradiente)
+
+\- Título + subtítulo
+
+\- Skill progress bars (3)
+
+\- Footer stats (años exp + estado)
+
+\- Interacción: Glassmorphism, subtle hover elevation
+
+***
 
 ### 4. Tech Stack Cards
 
-```
-┌───────────────────────┐
-│ [BADGE: LENGUAJE]     │
-│                       │
-│        ⚛️             │
-│                       │
-│       React           │
-│   Librería UI         │
-│                       │
-└───────────────────────┘
+\- Función: Mostrar tecnologías y herramientas
 
-Hover state:
-- Border: accent-primary
-- Elevation: +4px
-- Scale: 1.02
-```
+\- Componentes:
 
-**Props:**
-- Category badge: Language, Framework, Runtime, Tool
-- Icon: SVG tech logo
-- Name: Technology name
-- Description: Brief tagline
+\- Badge de categoría (LENGUAJE, FRAMEWORK, RUNTIME)
 
----
+\- Icono de tecnología
+
+\- Nombre
+
+\- Descripción breve
+
+\- Interacción: Hover → Border change + Elevation + Scale
+
+***
 
 ### 5. Timeline Items
 
-```
-●───────────────────────────────
-│
-│  2025 - PRESENTE
-│  Senior Developer
-│  🏦 iProspect
-│  Descripción del rol...
-│
-●
-│
-│  2023 - 2024
-│  Full Stack Developer  
-│  🏦 Banco Bice
-│  Descripción del rol...
-│
-●
-```
+\- Función: Mostrar experiencia cronológica
 
-**Features:**
-- Dot indicator con línea conectora
-- Badge de fechas
-- Empresa destacada en gold
-- Descripción colapsable
+\- Componentes:
 
-**Hover:**
-- Elevation
-- Border highlight
+\- Dot indicator con línea conectora
 
----
+\- Badge de fechas
+
+\- Título de cargo
+
+\- Empresa (destacada en gold)
+
+\- Descripción
+
+\- Interacción: Hover → Elevation + Border highlight
+
+***
 
 ### 6. Education Cards
 
-```
-┌──────────────────────────┐
-│ [BADGE: DESARROLLO]      │
-│                          │
-│    2025 - 2026           │
-│                          │
-│  🎓 Diseño UI/UX         │
-│     Universidad X        │
-│                          │
-│  Especialización en...   │
-│                          │
-└──────────────────────────┘
-```
+\- Función: Mostrar formación académica
 
-**Props:**
-- Badge category: Diseño, Desarrollo, Grado
-- Date range
-- Institution icon
-- Title
-- Institution name
-- Description
+\- Componentes:
 
----
+\- Badge de tipo (DISEÑO, DESARROLLO, GRADO)
+
+\- Fecha
+
+\- Icono institucional
+
+\- Título del programa
+
+\- Institución
+
+\- Descripción
+
+\- Interacción: Hover → Elevation + Border change
+
+***
 
 ### 7. Contact Cards
 
-```
-┌──────────────────────────┐
-│ [CANAL]                  │
-│                          │
-│         ✉️               │
-│                          │
-│        Email             │
-│   tamara@email.com       │
-│                          │
-│   Click para copiar      │
-│                          │
-└──────────────────────────┘
+\- Función: Canales de contacto
 
-Active state:
-- Background: accent-primary
-- Text: bg-primary
-- Checkmark animation
-```
+\- Componentes:
 
-**Interacción:**
-- Click → Copy to clipboard
-- Feedback visual inmediato
+\- Badge de categoría
 
----
+\- Icono
+
+\- Título del canal
+
+\- Valor de contacto (email, link, ubicación)
+
+\- Descripción
+
+\- Interacción: Hover → Elevation, Click → Copy to clipboard
+
+***
 
 ### 8. CTA Button
 
-```
-Default:        Hover:          Active:
-┌──────────┐    ┌──────────┐    ┌──────────┐
-│ Contacto │    │ Contacto │    │ Contacto │
-│    ▶     │    │    ▶     │    │    ▶     │
-└──────────┘    └──────────┘    └──────────┘
-Outline         Filled          Pressed
-accent          accent          darken 10%
-```
+\- Función: Acción principal de contacto
 
-**Props:**
-- Size: Default / Large
-- Variant: Primary / Secondary / Ghost
-- Icon: Optional arrow/icon
+\- Estados:
 
----
+\- Default: Outline cyan
+
+\- Hover: Filled cyan
+
+\- Active: Pressed state
+
+\- Interacción: Smooth transitions, arrow icon
+
+***
 
 ## Tokens de Diseño
 
@@ -411,35 +330,15 @@ accent          accent          darken 10%
 --transition-slow: 350ms ease;
 ```
 
----
+***
 
 ## Accesibilidad
 
 ### Contraste
 
-| Elemento | Ratio | Cumple |
-|----------|-------|--------|
-| White on #1a1a1a | 16.1:1 | ✅ AAA |
-| Cyan on #1a1a1a | 8.2:1 | ✅ AAA |
-| Gold on #1a1a1a | 10.4:1 | ✅ AAA |
-| 60% white on #1a1a1a | 7.2:1 | ✅ AA |
-
-### Focus States
-
-```css
-:focus-visible {
-  outline: 2px solid var(--accent-primary);
-  outline-offset: 2px;
-}
-```
-
-### Motion
-
-```css
-@media (prefers-reduced-motion: reduce) {
-  * {
-    animation-duration: 0.01ms !important;
-    transition-duration: 0.01ms !important;
-  }
-}
-```
+| Elemento             | Ratio  | Cumple |
+| -------------------- | ------ | ------ |
+| White on #1a1a1a     | 16.1:1 | ✅ AAA  |
+| Cyan on #1a1a1a      | 8.2:1  | ✅ AAA  |
+| Gold on #1a1a1a      | 10.4:1 | ✅ AAA  |
+| 60% white on #1a1a1a | 7.2:1  | ✅ AA   |
