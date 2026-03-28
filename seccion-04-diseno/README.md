@@ -4,53 +4,39 @@
 
 Con la arquitectura y sistema de diseño establecidos, esta fase transforma los wireframes en interfaces de alta fidelidad, incorporando la estética "Quest Log" y elementos visuales distintivos.
 
----
-
-## Proceso de Diseño
-
-```
-Wireframes (Estructura)
-     ↓
-Moodboard (Inspiración)
-     ↓
-Concepto Visual
-     ↓
-UI System Detallado
-     ↓
-Mockups de Alta Fidelidad
-     ↓
-Prototipo Navegable (Figma)
-```
-
----
+***
 
 ## Contenido de esta Sección
 
 ### 4.1 Concepto Visual
-- Inspiración y moodboard
-- Dirección artística
-- Elementos de gamificación sutil
+
+* Inspiración y moodboard
+* Dirección artística
+* Elementos de gamificación sutil
 
 ### 4.2 UI System
-- Aplicación de tokens de diseño
-- Variantes de componentes
-- Estados y micro-interacciones
+
+* Aplicación de tokens de diseño
+* Variantes de componentes
+* Estados y micro-interacciones
 
 ### 4.3 Mockups
-- Versiones desktop
-- Versiones mobile
-- Estados especiales
+
+* Versiones desktop
+* Versiones mobile
+* Estados especiales
 
 ### 4.4 Prototipo Figma
-- Flujos navegables
-- Interacciones
-- Handoff para desarrollo
 
----
+* Flujos navegables
+* Interacciones
+* Handoff para desarrollo
+
+***
 
 ## Entregables
 
-- ✅ Diseño visual completo en Figma
-- ✅ Prototipo navegable
-- ✅ Especificaciones para desarrollo
-- ✅ Assets exportados
+* ✅ Diseño visual completo en Figma
+* ✅ Prototipo navegable
+* ✅ Especificaciones para desarrollo
+* ✅ Assets exportados

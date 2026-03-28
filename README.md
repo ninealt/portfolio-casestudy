@@ -1,10 +1,10 @@
-# Portafolio Tamara Palma
+# Portada
 
 ## Quest Log: CV Interactivo de una Full Stack Developer
 
 > "Necesito ver en 30 segundos si este candidato vale la pena o paso al siguiente." — Reclutador Tech
 
----
+***
 
 ## Resumen Ejecutivo
 
@@ -14,7 +14,7 @@ Este proyecto representa la transformación de un CV tradicional en una experien
 
 **La solución:** Un portafolio dark mode con estética neón, estructurado como un "Quest Log" donde las habilidades son skills, la experiencia son misiones completadas y el progreso profesional es una aventura en curso.
 
----
+***
 
 ## 📋 Estructura del Case Study
 
@@ -26,27 +26,27 @@ Este proyecto representa la transformación de un CV tradicional en una experien
 6. **Testeo y Mejoras** — Feedback de usuarios y iteraciones
 7. **Reflexiones y Próximos Pasos** — Aprendizajes y roadmap futuro
 
----
+***
 
 ## 🎯 Entregables del Proyecto
 
-| Entregable | Estado | Link |
-|------------|--------|------|
-| Prototipo Figma | ✅ Completo | [Ver en Figma](https://figma.com) |
-| Landing Page | ✅ Publicado | [Ver sitio](https://tamarapalma.dev) |
-| Repositorio | ✅ Open Source | [GitHub](https://github.com) |
+| Entregable      | Estado        | Link                                                                                                  |
+| --------------- | ------------- | ----------------------------------------------------------------------------------------------------- |
+| Prototipo Figma | ✅ Completo    | [Ver en Figma](https://www.figma.com/design/uimTgFiB48cUfT29eEXYDl/CV-F?m=auto\&t=vbadS9kiA1skf2PI-1) |
+| Landing Page    | ✅ Publicado   | [Ver sitio](https://33-orpin-one.vercel.app/)                                                         |
+| Repositorio     | ✅ Open Source | [GitHub](https://github.com/ninealt/literate-octo-memory)                                             |
 
----
+***
 
 ## 🛠️ Stack Tecnológico
 
-- **Diseño:** Figma, Adobe Creative Suite
-- **Frontend:** HTML5, CSS3, JavaScript
-- **Metodología:** Mobile-First, Responsive Design
-- **Deploy:** GitHub Pages / Netlify
+* **Diseño:** Figma, Affinity
+* **Frontend:** Vite, React 19, Node.js
+* **Metodología:** Mobile-First, Responsive Design
+* **Deploy:** GitHub Pages / Vercel
 
----
+***
 
-**Autora:** Tamara Palma  
-**Curso:** Diseño UI/UX + Full Stack  
+**Autora:** Tamara Palma\
+**Curso:** Diseño UI/UX + Full Stack\
 **Año:** 2025-2026
