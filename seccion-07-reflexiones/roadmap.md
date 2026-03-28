@@ -21,6 +21,23 @@ Estructura propuesta:
   └── /mi-experiencia-con-ux-research
 ```
 
+**Implementación con React Router:**
+```jsx
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+
+function App() {
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/blog" element={<Blog />} />
+        <Route path="/blog/:slug" element={<BlogPost />} />
+      </Routes>
+    </BrowserRouter>
+  );
+}
+```
+
 **Beneficios:**
 - SEO mejorado
 - Posicionamiento como experta
@@ -32,20 +49,51 @@ Estructura propuesta:
 
 **Objetivo:** Respetar preferencia del usuario.
 
-```javascript
-// Implementación
-const themeToggle = document.querySelector('.theme-toggle');
-const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
+```jsx
+// ThemeContext.js
+import { createContext, useContext, useState, useEffect } from 'react';
 
-// Guardar preferencia
-localStorage.setItem('theme', 'dark');
+const ThemeContext = createContext();
+
+export function ThemeProvider({ children }) {
+  const [theme, setTheme] = useState(() => {
+    return localStorage.getItem('theme') || 
+           (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+  });
+
+  useEffect(() => {
+    document.documentElement.setAttribute('data-theme', theme);
+    localStorage.setItem('theme', theme);
+  }, [theme]);
+
+  const toggleTheme = () => setTheme(prev => prev === 'dark' ? 'light' : 'dark');
+
+  return (
+    <ThemeContext.Provider value={{ theme, toggleTheme }}>
+      {children}
+    </ThemeContext.Provider>
+  );
+}
+
+export const useTheme = () => useContext(ThemeContext);
+
+// Uso en componente
+function ThemeToggle() {
+  const { theme, toggleTheme } = useTheme();
+  
+  return (
+    <button onClick={toggleTheme} aria-label="Cambiar tema">
+      {theme === 'dark' ? '🌙' : '☀️'}
+    </button>
+  );
+}
 ```
 
 **Criterios:**
 - [ ] Detectar preferencia del sistema
 - [ ] Toggle manual accesible
-- [ ] Persistir selección
-- [ ] Transición suave
+- [ ] Persistir selección (localStorage)
+- [ ] Transición suave entre temas
 
 ---
 
@@ -56,6 +104,27 @@ localStorage.setItem('theme', 'dark');
 ```
 /es  →  Versión actual
 /en  →  English version
+```
+
+**Implementación con React i18n:**
+```jsx
+import { useTranslation } from 'react-i18next';
+
+function HeroSection() {
+  const { t, i18n } = useTranslation();
+  
+  return (
+    <section className="hero">
+      <h1>{t('hero.name')}</h1>
+      <p>{t('hero.tagline')}</p>
+      
+      <select onChange={(e) => i18n.changeLanguage(e.target.value)}>
+        <option value="es">Español</option>
+        <option value="en">English</option>
+      </select>
+    </section>
+  );
+}
 ```
 
 **Estrategia:**
@@ -97,19 +166,70 @@ localStorage.setItem('theme', 'dark');
 
 **Objetivo:** Reducir fricción al contactar.
 
-```html
-<form class="contact-form" action="/api/contact" method="POST">
-  <input type="text" name="name" placeholder="Nombre" required>
-  <input type="email" name="email" placeholder="Email" required>
-  <textarea name="message" placeholder="Mensaje" required></textarea>
-  <button type="submit">Enviar mensaje</button>
-</form>
+```jsx
+import { useState } from 'react';
+
+function ContactForm() {
+  const [formData, setFormData] = useState({ name: '', email: '', message: '' });
+  const [status, setStatus] = useState('idle'); // idle | submitting | success | error
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setStatus('submitting');
+    
+    try {
+      // Opción 1: Netlify Forms
+      // Opción 2: Formspree
+      // Opción 3: Serverless function
+      await fetch('/api/contact', {
+        method: 'POST',
+        body: JSON.stringify(formData),
+      });
+      
+      setStatus('success');
+      setFormData({ name: '', email: '', message: '' });
+    } catch (error) {
+      setStatus('error');
+    }
+  };
+
+  return (
+    <form onSubmit={handleSubmit} className="contact-form">
+      <input
+        type="text"
+        value={formData.name}
+        onChange={(e) => setFormData({...formData, name: e.target.value})}
+        placeholder="Nombre"
+        required
+      />
+      <input
+        type="email"
+        value={formData.email}
+        onChange={(e) => setFormData({...formData, email: e.target.value})}
+        placeholder="Email"
+        required
+      />
+      <textarea
+        value={formData.message}
+        onChange={(e) => setFormData({...formData, message: e.target.value})}
+        placeholder="Mensaje"
+        required
+      />
+      <button type="submit" disabled={status === 'submitting'}>
+        {status === 'submitting' ? 'Enviando...' : 'Enviar mensaje'}
+      </button>
+      
+      {status === 'success' && <p className="success">¡Mensaje enviado!</p>}
+      {status === 'error' && <p className="error">Error al enviar. Intenta de nuevo.</p>}
+    </form>
+  );
+}
 ```
 
 **Backend options:**
 - Netlify Forms (gratuito)
 - Formspree
-- Serverless function
+- Serverless function (Vercel/Netlify Functions)
 
 ---
 
@@ -122,6 +242,27 @@ localStorage.setItem('theme', 'dark');
 | Google Analytics 4 | Métricas generales | Gratis |
 | Hotjar | Heatmaps, recordings | Freemium |
 | Plausible | Privacy-focused | $9/mes |
+
+**Implementación en React:**
+```jsx
+// useAnalytics.js
+import { useEffect } from 'react';
+
+export function usePageView() {
+  useEffect(() => {
+    // Google Analytics
+    gtag('event', 'page_view', {
+      page_path: window.location.pathname,
+    });
+  }, []);
+}
+
+// Uso en cada página
+function SkillsSection() {
+  usePageView();
+  // ...
+}
+```
 
 **Métricas a trackear:**
 - Páginas más visitadas
@@ -141,6 +282,33 @@ localStorage.setItem('theme', 'dark');
 | 3D elements sutiles | Three.js / CSS 3D | Diferenciador |
 | Micro-interactions | Lottie | Polish |
 
+**Ejemplo con GSAP en React:**
+```jsx
+import { useEffect, useRef } from 'react';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger);
+
+function AnimatedSection() {
+  const sectionRef = useRef(null);
+
+  useEffect(() => {
+    gsap.from(sectionRef.current, {
+      opacity: 0,
+      y: 50,
+      duration: 1,
+      scrollTrigger: {
+        trigger: sectionRef.current,
+        start: 'top 80%',
+      },
+    });
+  }, []);
+
+  return <section ref={sectionRef}>...</section>;
+}
+```
+
 **Nota:** Mantener performance como prioridad #1.
 
 ---
@@ -151,11 +319,39 @@ localStorage.setItem('theme', 'dark');
 
 ```
 Features:
-├── Service Worker
+├── Service Worker (Vite PWA plugin)
 ├── Offline support
 ├── Add to home screen
 ├── Push notifications (blog)
 └── App shell
+```
+
+**Implementación con Vite PWA:**
+```bash
+npm install vite-plugin-pwa -D
+```
+
+```javascript
+// vite.config.js
+import { VitePWA } from 'vite-plugin-pwa';
+
+export default defineConfig({
+  plugins: [
+    react(),
+    VitePWA({
+      registerType: 'autoUpdate',
+      manifest: {
+        name: 'Tamara Palma - Portfolio',
+        short_name: 'Tamara Dev',
+        theme_color: '#1a1a1a',
+        icons: [
+          { src: '/icon-192.png', sizes: '192x192' },
+          { src: '/icon-512.png', sizes: '512x512' },
+        ],
+      },
+    }),
+  ],
+});
 ```
 
 **Beneficios:**
@@ -173,6 +369,29 @@ Features:
 - **Netlify CMS** (Git-based)
 - **Contentful** (Headless CMS)
 - **Notion API** (Base de datos)
+- **Sanity** (CMS moderno para React)
+
+**Ejemplo con Sanity + React:**
+```jsx
+import { useEffect, useState } from 'react';
+import { client } from './sanityClient';
+
+function Projects() {
+  const [projects, setProjects] = useState([]);
+
+  useEffect(() => {
+    client.fetch(`*[_type == "project"]`).then(setProjects);
+  }, []);
+
+  return (
+    <div className="projects">
+      {projects.map(project => (
+        <ProjectCard key={project._id} data={project} />
+      ))}
+    </div>
+  );
+}
+```
 
 **Casos de uso:**
 - Agregar nuevos proyectos
@@ -250,16 +469,16 @@ IMPACTO│ 4. Lottie│            │ 6. 3D  │
 
 ```
 v1.0 (Actual)
-   └── Portafolio estático, one-page
+   └── React + Vite, one-page, componentes
    
 v2.0 (6 meses)
-   └── + Blog, multilenguaje, tema toggle
+   └── + React Router, blog, multilenguaje, tema toggle
    
 v3.0 (1 año)
-   └── + Páginas de proyecto, form contacto
+   └── + Páginas de proyecto, form contacto, analytics
    
 v4.0 (2 años)
-   └── + PWA, CMS, interacciones avanzadas
+   └── + PWA, CMS, interacciones avanzadas con GSAP
 ```
 
 ---

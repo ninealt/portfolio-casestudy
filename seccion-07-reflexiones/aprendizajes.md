@@ -33,25 +33,29 @@ El cambio de mentalidad fue crucial:
 
 ---
 
-#### 3. Vanilla tiene su Lugar
+#### 3. React para Portafolios: Sí, con Criterio
 
 ```
-Framework (React/Vue/Angular)
+Framework (React + Vite)
    ↓
-Bueno para: Apps complejas, estado, interactividad
+Bueno para: Componentes reutilizables, estado, interactividad, escalabilidad
 
 Vanilla (HTML/CSS/JS)
    ↓
-Bueno para: Portafolios, landing pages, performance
+Bueno para: Sitios estáticos simples, sin build step, máxima performance
 ```
 
-Para un portafolio estático:
-- ✅ Sin build step
-- ✅ Sin dependencies
-- ✅ Carga instantánea
-- ✅ Control total
+**¿Por qué elegimos React para este portafolio?**
 
-**Impacto:** 95 Performance Lighthouse sin esfuerzo de optimización.
+- ✅ Componentes modulares (Hero, Skills, Cards)
+- ✅ Estado para interacciones (clipboard, scroll, toggles)
+- ✅ React hooks para lógica reutilizable
+- ✅ Vite para build optimizado sin configuración compleja
+- ✅ Base para escalar (blog, CMS, animaciones avanzadas)
+
+**Trade-off:** Build step necesario, pero Vite lo hace instantáneo.
+
+**Impacto:** 95 Performance Lighthouse con componentes modernos.
 
 ---
 
@@ -98,9 +102,10 @@ Después:
 | Aspecto | Implementación | Beneficio |
 |---------|----------------|-----------|
 | Contraste | WCAG AA | Todos pueden leer |
-| Keyboard nav | Tab navigation | Sin mouse funciona |
-| Alt text | Descripciones | Screen readers |
-| Reduced motion | Media query | Respeto preferencias |
+| Keyboard nav | Tab navigation + focus states | Sin mouse funciona |
+| Alt text | Descripciones en JSX | Screen readers |
+| Reduced motion | Media query + prefers-reduced-motion | Respeto preferencias |
+| ARIA labels | En componentes React interactivos | Navegación clara |
 
 **Impacto:** Lighthouse Accessibility 100/100. Es lo correcto y es buen negocio.
 
@@ -161,11 +166,14 @@ Este GitBook no es "tarea extra", es:
 ## Skills Desarrolladas
 
 ### Técnicas
+- ✅ React 19 y hooks (useState, useEffect, custom hooks)
+- ✅ Componentes funcionales y JSX
+- ✅ Vite como build tool moderno
 - ✅ CSS Grid y Flexbox avanzado
 - ✅ CSS Variables y custom properties
-- ✅ Intersection Observer API
 - ✅ Responsive design patterns
-- ✅ Performance optimization
+- ✅ Performance optimization con React
+- ✅ Lazy loading y Suspense
 
 ### De Diseño
 - ✅ Design tokens y sistemas
@@ -184,12 +192,12 @@ Este GitBook no es "tarea extra", es:
 
 ## Reflexión Final
 
-> **"Este proyecto no fue solo sobre crear un portafolio. Fue sobre demostrarme a mí misma que puedo diseñar y desarrollar un producto digital completo, desde la investigación hasta el deployment."**
+> **"Este proyecto no fue solo sobre crear un portafolio. Fue sobre demostrarme a mí misma que puedo diseñar y desarrollar un producto digital completo con React, desde la investigación hasta el deployment."**
 
 El resultado es un portafolio que:
 - **Funciona:** Cumple objetivo de comunicar valor rápido
 - **Diferencia:** Concepto único memorable
-- **Demuestra:** Capacidades técnicas y de diseño
-- **Escala:** Base sólida para futuras mejoras
+- **Demuestra:** Capacidades técnicas (React + diseño) y de pensamiento
+- **Escala:** Base sólida con componentes para futuras mejoras
 
 Y lo más importante: **representa quién soy como profesional**.
