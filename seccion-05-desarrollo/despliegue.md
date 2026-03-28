@@ -2,13 +2,53 @@
 
 ## Publicación en Producción
 
-El portafolio está desplegado y accesible públicamente.
+El portafolio está desplegado y accesible públicamente. El build de Vite genera archivos estáticos optimizados listos para cualquier hosting.
 
 ---
 
-## Plataforma de Hosting
+## Build de Producción
 
-### Opción 1: GitHub Pages (Recomendado)
+### Generar el Build
+
+```bash
+# En la carpeta del proyecto
+cd /Users/ninealt/develop/memory-octo
+
+# Instalar dependencias (si no lo has hecho)
+npm install
+
+# Generar build de producción
+npm run build
+
+# El resultado está en la carpeta /dist
+```
+
+### Contenido del Build
+
+```
+dist/
+├── index.html              ← HTML principal optimizado
+├── assets/
+│   ├── index-XXXX.js       ← JavaScript bundle
+│   ├── index-XXXX.css      ← CSS optimizado
+│   └── vendor-XXXX.js      ← Vendor chunk (React)
+└── [assets estáticos]      ← Imágenes, favicon, etc.
+```
+
+### Preview Local del Build
+
+```bash
+# Verificar que todo funciona antes de deploy
+npm run preview
+
+# Abre http://localhost:4173
+```
+
+---
+
+## Plataformas de Hosting
+
+### Opción 1: GitHub Pages (Recomendada)
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
@@ -17,60 +57,109 @@ El portafolio está desplegado y accesible públicamente.
 │                                                             │
 │   ✅ Gratuito                                               │
 │   ✅ HTTPS automático                                       │
-│   ✅ CI/CD integrado (push → deploy)                        │
+│   ✅ Integrado con Git workflow                             │
 │   ✅ Custom domain support                                  │
 │   ✅ 99.9% uptime                                           │
 │                                                             │
 └─────────────────────────────────────────────────────────────┘
 ```
 
-**URL del sitio:** `https://tamarapalma.github.io/portfolio`
+**Configuración para GitHub Pages:**
 
-### Opción 2: Netlify (Alternativa)
+1. **Instalar gh-pages:**
+   ```bash
+   npm install --save-dev gh-pages
+   ```
+
+2. **Actualizar package.json:**
+   ```json
+   {
+     "scripts": {
+       "dev": "vite",
+       "build": "vite build",
+       "preview": "vite preview",
+       "predeploy": "npm run build",
+       "deploy": "gh-pages -d dist"
+     },
+     "homepage": "https://tamarapalma.github.io/cv-react"
+   }
+   ```
+
+3. **Actualizar vite.config.js:**
+   ```javascript
+   export default defineConfig({
+     base: '/cv-react/',  // ← Nombre del repo
+     plugins: [react()],
+   })
+   ```
+
+4. **Deploy:**
+   ```bash
+   npm run deploy
+   ```
+
+---
+
+### Opción 2: Netlify (Recomendada para SPAs)
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
 │                                                             │
 │   Netlify                                                   │
 │                                                             │
-│   ✅ Gratuito (generous tier)                               │
-│   ✅ Form handling                                          │
+│   ✅ Drag & drop simple                                     │
+│   ✅ CI/CD automático desde GitHub                          │
+│   ✅ Form handling integrado                                │
 │   ✅ Edge network global                                    │
 │   ✅ Branch previews                                        │
-│   ✅ Analytics básicos                                      │
 │                                                             │
 └─────────────────────────────────────────────────────────────┘
 ```
 
-**URL del sitio:** `https://tamarapalma.netlify.app`
+**Deploy en Netlify:**
+
+#### Método A: Drag & Drop
+1. Ejecuta `npm run build`
+2. Arrastra la carpeta `dist` a [netlify.com](https://netlify.com)
+3. Listo!
+
+#### Método B: Git Integration
+1. Conecta tu repo de GitHub en Netlify
+2. Configuración:
+   ```
+   Build command: npm run build
+   Publish directory: dist
+   ```
+3. Deploy automático en cada push
 
 ---
 
-## Configuración GitHub Pages
-
-### Paso 1: Repositorio
+### Opción 3: Vercel
 
 ```bash
-# Crear repositorio en GitHub
-git init
-git add .
-git commit -m "Initial commit"
-git remote add origin https://github.com/tamarapalma/portfolio.git
-git push -u origin main
+# Instalar Vercel CLI
+npm i -g vercel
+
+# Deploy
+vercel --prod
 ```
 
-### Paso 2: Activar GitHub Pages
+**Configuración automática:** Vercel detecta Vite y configura todo.
 
-1. Ir a Settings → Pages
-2. Source: Deploy from a branch
-3. Branch: main / (root)
-4. Save
+---
 
-### Paso 3: Custom Domain (Opcional)
+## Configuración de Dominio Personalizado
 
-1. Comprar dominio (ej: tamarapalma.dev)
-2. Agregar en Settings → Pages → Custom domain
-3. Configurar DNS:
+### GitHub Pages + Custom Domain
+
+1. Agrega archivo `CNAME` en la carpeta `public/`:
+   ```
+   tamarapalma.dev
+   ```
+
+2. En GitHub: Settings → Pages → Custom domain
+
+3. Configura DNS:
    ```
    Type: A
    Name: @
@@ -84,50 +173,11 @@ git push -u origin main
    Value: tamarapalma.github.io
    ```
 
----
+### Netlify Custom Domain
 
-## Configuración Netlify
-
-### Deploy desde Git
-
-1. Conectar cuenta de GitHub en Netlify
-2. Seleccionar repositorio `portfolio`
-3. Build settings:
-   ```
-   Build command: (vacío, es estático)
-   Publish directory: .
-   ```
-4. Deploy!
-
-### Drag & Drop
-
-1. Comprimir carpeta del proyecto en `.zip`
-2. Arrastrar a Netlify dashboard
-3. Deploy instantáneo
-
----
-
-## Dominio Personalizado
-
-### Configuración DNS
-
-```
-┌─────────────────────────────────────────────────────────────┐
-│  REGISTRO          TIPO      VALOR                          │
-├─────────────────────────────────────────────────────────────┤
-│  @                   A        185.199.108.153               │
-│  @                   A        185.199.109.153               │
-│  @                   A        185.199.110.153               │
-│  @                   A        185.199.111.153               │
-│  www                 CNAME    tamarapalma.github.io         │
-└─────────────────────────────────────────────────────────────┘
-```
-
-### HTTPS
-
-- ✅ Certificado SSL automático (Let's Encrypt)
-- ✅ Renovación automática
-- ✅ Redirección HTTP → HTTPS
+1. Ve a Site settings → Domain management
+2. Add custom domain
+3. Configura DNS según instrucciones
 
 ---
 
@@ -144,14 +194,14 @@ git push -u origin main
 | First Contentful Paint | 0.8s | ✅ Rápido |
 | Largest Contentful Paint | 1.2s | ✅ Rápido |
 | Time to Interactive | 1.5s | ✅ Rápido |
+| Bundle Size | ~150KB | ✅ Optimizado |
 
-### Optimizaciones Aplicadas
+### Optimizaciones de Vite
 
-1. **Imágenes comprimidas** (TinyPNG)
-2. **CSS minificado** (sin framework)
-3. **Sin JavaScript bloqueante**
-4. **Preconnect a fonts**
-5. **Gzip enabled** (por host)
+- **Code splitting** automático
+- **Tree shaking** para eliminar código no usado
+- **Minificación** con esbuild
+- **Asset hashing** para cache busting
 
 ---
 
@@ -160,42 +210,52 @@ git push -u origin main
 | Recurso | URL |
 |---------|-----|
 | **Portafolio Live** | https://tamarapalma.dev |
-| **Repositorio** | https://github.com/tamarapalma/portfolio |
+| **Repositorio** | https://github.com/tamarapalma/cv-react |
 | **Prototipo Figma** | https://figma.com/file/... |
 | **Case Study** | Este GitBook |
 
 ---
 
-## Screenshots del Sitio
+## Troubleshooting
 
-### Desktop
+### Problema: Rutas rotas en refresh (404)
 
+**Solución para GitHub Pages/Netlify:**
+
+Crear archivo `public/_redirects` (Netlify):
 ```
-┌─────────────────────────────────────────────────────────────┐
-│                                                             │
-│   [Screenshot desktop del portafolio]                       │
-│                                                             │
-│   - Hero con nombre y stack                                 │
-│   - Diseño dark mode + acentos cyan                         │
-│   - Sidebar navigation visible                              │
-│                                                             │
-└─────────────────────────────────────────────────────────────┘
+/* /index.html 200
 ```
 
-### Mobile
+O `public/404.html` (GitHub Pages):
+Copiar el contenido de `index.html`
 
+### Problema: Assets no cargan
+
+Verificar que `base` en `vite.config.js` coincida con el subdirectorio:
+```javascript
+// Si el repo se llama 'cv-react' y es proyecto de usuario
+base: '/cv-react/',
+
+// Si es usuario.github.io (sin subdirectorio)
+base: '/',
 ```
-┌─────────────────┐
-│                 │
-│ [Screenshot]    │
-│ mobile del      │
-│ portafolio      │
-│                 │
-│ - Hero compacto │
-│ - Bottom tabs   │
-│ - Responsive    │
-│                 │
-└─────────────────┘
+
+### Problema: Build muy grande
+
+Analizar bundle:
+```bash
+npm install --save-dev rollup-plugin-visualizer
+
+// vite.config.js
+import { visualizer } from 'rollup-plugin-visualizer'
+
+export default defineConfig({
+  plugins: [
+    react(),
+    visualizer(),
+  ],
+})
 ```
 
 ---
@@ -204,18 +264,34 @@ git push -u origin main
 
 ### Actualizaciones Regulares
 
+- [ ] `npm update` mensualmente
 - [ ] Revisar links cada 3 meses
 - [ ] Actualizar experiencia laboral
 - [ ] Agregar nuevos proyectos
-- [ ] Revisar performance
-- [ ] Actualizar dependencias (si aplica)
+- [ ] Revisar métricas de Lighthouse
 
-### Backup
+### Actualizar Dependencias
 
 ```bash
-# Backup del código
-git clone https://github.com/tamarapalma/portfolio.git backup-portfolio
+# Verificar actualizaciones
+npm outdated
 
-# Backup de assets
-rsync -av assets/ backup-assets/
+# Actualizar seguro
+npm update
+
+# Actualizar major versions (con cuidado)
+npm install react@latest react-dom@latest
 ```
+
+---
+
+## Checklist Pre-Deploy
+
+- [ ] `npm run build` ejecuta sin errores
+- [ ] `npm run preview` muestra el sitio correctamente
+- [ ] Todos los links funcionan
+- [ ] Imágenes cargan correctamente
+- [ ] Responsive funciona en mobile
+- [ ] Meta tags de SEO están presentes
+- [ ] No hay errores en consola
+- [ ] Lighthouse score > 90

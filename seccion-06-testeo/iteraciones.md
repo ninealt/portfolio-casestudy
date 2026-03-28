@@ -47,26 +47,49 @@ Falta de detalle sobre logros en cada rol.
 
 ### Solución
 
-```html
-<!-- Antes -->
-<div class="experience__item">
-  <h3>Senior Developer</h3>
-  <p>iProspect</p>
-  <p>2025 - Presente</p>
-</div>
+```jsx
+// Antes
+function ExperienceItem({ title, company, period }) {
+  return (
+    <div className="experience__item">
+      <h3>{title}</h3>
+      <p>{company}</p>
+      <p>{period}</p>
+    </div>
+  );
+}
 
-<!-- Después -->
-<div class="experience__item">
-  <h3>Senior Developer</h3>
-  <p>iProspect</p>
-  <p>2025 - Presente</p>
-  <ul class="experience__achievements">
-    <li>Lideré equipo de 3 desarrolladores frontend</li>
-    <li>Reduje tiempo de carga en 40%</li>
-    <li>Implementé sistema de diseño unificado</li>
-  </ul>
-  <span class="experience__tech">React • TypeScript • AWS</span>
-</div>
+// Después
+function ExperienceItem({ title, company, period, achievements, tech }) {
+  return (
+    <div className="experience__item">
+      <h3>{title}</h3>
+      <p>{company}</p>
+      <p>{period}</p>
+      
+      <ul className="experience__achievements">
+        {achievements.map((achievement, index) => (
+          <li key={index}>{achievement}</li>
+        ))}
+      </ul>
+      
+      <span className="experience__tech">{tech.join(' • ')}</span>
+    </div>
+  );
+}
+
+// Uso
+<ExperienceItem
+  title="Senior Developer"
+  company="iProspect"
+  period="2025 - Presente"
+  achievements={[
+    "Lideré equipo de 3 desarrolladores frontend",
+    "Reduje tiempo de carga en 40%",
+    "Implementé sistema de diseño unificado"
+  ]}
+  tech={["React", "TypeScript", "AWS"]}
+/>
 ```
 
 ### Resultado
@@ -93,14 +116,24 @@ Carga lenta en conexiones débiles.
 
 **Herramienta:** TinyPNG + SVGO
 
-#### 3.2 Lazy Loading
+#### 3.2 Lazy Loading en React
 
-```html
-<!-- Antes -->
-<img src="avatar.png" alt="Tamara Palma">
+```jsx
+// Antes - Carga inmediata
+import { Avatar } from './components/Avatar';
 
-<!-- Después -->
-<img src="avatar.png" alt="Tamara Palma" loading="lazy">
+// Después - Lazy loading
+import { lazy, Suspense } from 'react';
+
+const Avatar = lazy(() => import('./components/Avatar'));
+
+function App() {
+  return (
+    <Suspense fallback={<div className="skeleton" />}>
+      <Avatar />
+    </Suspense>
+  );
+}
 ```
 
 #### 3.3 Reduced Motion
@@ -130,34 +163,44 @@ Bottom tabs no eran inmediatamente reconocibles.
 
 ### Solución
 
-```html
-<!-- Antes -->
-<nav class="tab-bar">
-  <a href="#home">🏠</a>
-  <a href="#skills">⚡</a>
-  <a href="#experience">💼</a>
-  <a href="#contact">✉️</a>
-</nav>
+```jsx
+// Antes
+function TabBar() {
+  return (
+    <nav className="tab-bar">
+      <a href="#home">🏠</a>
+      <a href="#skills">⚡</a>
+      <a href="#experience">💼</a>
+      <a href="#contact">✉️</a>
+    </nav>
+  );
+}
 
-<!-- Después -->
-<nav class="tab-bar" aria-label="Navegación principal">
-  <a href="#home" class="tab-bar__item">
-    <span class="tab-bar__icon" aria-hidden="true">🏠</span>
-    <span class="tab-bar__label">Inicio</span>
-  </a>
-  <a href="#skills" class="tab-bar__item">
-    <span class="tab-bar__icon" aria-hidden="true">⚡</span>
-    <span class="tab-bar__label">Skills</span>
-  </a>
-  <a href="#experience" class="tab-bar__item">
-    <span class="tab-bar__icon" aria-hidden="true">💼</span>
-    <span class="tab-bar__label">Exp</span>
-  </a>
-  <a href="#contact" class="tab-bar__item tab-bar__item--cta">
-    <span class="tab-bar__icon" aria-hidden="true">✉️</span>
-    <span class="tab-bar__label">Contacto</span>
-  </a>
-</nav>
+// Después
+function TabBar({ activeSection }) {
+  const tabs = [
+    { id: 'home', icon: '🏠', label: 'Inicio' },
+    { id: 'skills', icon: '⚡', label: 'Skills' },
+    { id: 'experience', icon: '💼', label: 'Exp' },
+    { id: 'contact', icon: '✉️', label: 'Contacto' },
+  ];
+
+  return (
+    <nav className="tab-bar" aria-label="Navegación principal">
+      {tabs.map((tab) => (
+        <a
+          key={tab.id}
+          href={`#${tab.id}`}
+          className={`tab-bar__item ${activeSection === tab.id ? 'active' : ''}`}
+          aria-current={activeSection === tab.id ? 'page' : undefined}
+        >
+          <span className="tab-bar__icon" aria-hidden="true">{tab.icon}</span>
+          <span className="tab-bar__label">{tab.label}</span>
+        </a>
+      ))}
+    </nav>
+  );
+}
 ```
 
 ### Resultado
@@ -171,42 +214,85 @@ Bottom tabs no eran inmediatamente reconocibles.
 
 ### 5.1 Descargar CV
 
-```html
-<a href="assets/cv-tamara-palma.pdf" download class="button button--secondary">
-  📄 Descargar CV
-</a>
+```jsx
+function DownloadCV() {
+  return (
+    <a 
+      href="/assets/cv-tamara-palma.pdf" 
+      download 
+      className="button button--secondary"
+    >
+      📄 Descargar CV
+    </a>
+  );
+}
 ```
 
 **Solicitado por:** Reclutador #1
 
 ### 5.2 Toast Notifications
 
-```javascript
-// Feedback al copiar email
-function showToast(message) {
-  const toast = document.createElement('div');
-  toast.className = 'toast';
-  toast.textContent = message;
-  document.body.appendChild(toast);
-  
-  setTimeout(() => toast.remove(), 3000);
+```jsx
+import { useState, useCallback } from 'react';
+
+function useToast() {
+  const [toast, setToast] = useState(null);
+
+  const showToast = useCallback((message) => {
+    setToast(message);
+    setTimeout(() => setToast(null), 3000);
+  }, []);
+
+  return { toast, showToast };
 }
 
-// Uso
-showToast('✓ Email copiado al portapapeles');
+// Uso en componente
+function ContactCard() {
+  const { toast, showToast } = useToast();
+  
+  const handleCopy = async () => {
+    await navigator.clipboard.writeText('tamara@email.com');
+    showToast('✓ Email copiado al portapapeles');
+  };
+
+  return (
+    <>
+      <button onClick={handleCopy}>
+        Copiar Email
+      </button>
+      {toast && <div className="toast">{toast}</div>}
+    </>
+  );
+}
 ```
 
 ### 5.3 Scroll Progress Indicator
 
-```css
-.progress-bar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: 3px;
-  background: var(--accent-primary);
-  z-index: 1001;
-  transition: width 0.1s;
+```jsx
+import { useState, useEffect } from 'react';
+
+function ScrollProgress() {
+  const [progress, setProgress] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollTop = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const scrollPercent = (scrollTop / docHeight) * 100;
+      setProgress(scrollPercent);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  return (
+    <div 
+      className="progress-bar" 
+      style={{ width: `${progress}%` }}
+      aria-hidden="true"
+    />
+  );
 }
 ```
 
@@ -246,8 +332,8 @@ showToast('✓ Email copiado al portapapeles');
 
 ## Próximas Iteraciones Consideradas
 
-- [ ] **Blog técnico** — Compartir conocimiento
-- [ ] **Dark/light toggle** — Preferencia de usuario
-- [ ] **Multilenguaje** — Inglés/español
-- [ ] **Analytics** — Entender comportamiento real
-- [ ] **Formulario de contacto** — Sin salir del sitio
+- [ ] **Blog técnico** — Compartir conocimiento (usando React Router)
+- [ ] **Dark/light toggle** — Context API para tema global
+- [ ] **Multilenguaje** — i18n para inglés/español
+- [ ] **Analytics** — React GA o Plausible
+- [ ] **Formulario de contacto** — Estado controlado con validación

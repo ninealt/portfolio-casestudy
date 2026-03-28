@@ -1,8 +1,8 @@
 # Sección 5: Desarrollo Web
 
-## De Figma a Código
+## De Figma a React
 
-Esta sección documenta la implementación técnica del portafolio, desde la estructura HTML hasta el deployment en producción.
+Esta sección documenta la implementación técnica del portafolio usando **React 19 + Vite**, desde la estructura de componentes hasta el deployment en producción.
 
 ---
 
@@ -10,33 +10,49 @@ Esta sección documenta la implementación técnica del portafolio, desde la est
 
 | Categoría | Tecnología | Justificación |
 |-----------|------------|---------------|
-| **Estructura** | HTML5 | Semántico, accesible |
-| **Estilos** | CSS3 | Moderno, sin dependencias |
-| **Interacción** | Vanilla JS | Ligero, suficiente para necesidades |
+| **Framework** | React 19 | Componentes reutilizables, estado moderno |
+| **Build Tool** | Vite 8 | Hot reload rápido, builds optimizadas |
+| **Lenguaje** | JavaScript ES6+ | Sintaxis moderna, módulos nativos |
+| **Estilos** | CSS3 | Vanilla CSS con variables custom |
+| **Linting** | ESLint 9 | Calidad de código consistente |
 | **Deploy** | GitHub Pages / Netlify | Gratuito, confiable |
-| **Version Control** | Git | Historial de cambios |
 
 ---
 
-## Estructura de Archivos
+## Estructura del Proyecto
 
 ```
-portafolio/
+cv-react/
 │
-├── index.html           ← Página principal
-├── css/
-│   ├── styles.css       ← Estilos principales
-│   ├── components.css   ← Componentes UI
-│   └── responsive.css   ← Media queries
-├── js/
-│   ├── main.js          ← Lógica principal
-│   └── animations.js    ← Animaciones
-├── assets/
+├── src/
+│   ├── components/     ← Componentes React reutilizables
+│   ├── sections/       ← Secciones del portafolio (Hero, Skills, etc.)
+│   ├── hooks/          ← Custom hooks (useScroll, useClipboard, etc.)
+│   ├── styles/         ← CSS global y variables
+│   ├── utils/          ← Funciones auxiliares
+│   ├── App.jsx         ← Componente raíz
+│   └── main.jsx        ← Punto de entrada
+│
+├── public/             ← Assets estáticos
 │   ├── images/
-│   │   ├── avatar.png
-│   │   └── favicon.ico
-│   └── icons/           ← SVG icons
-└── README.md
+│   └── favicon.ico
+│
+├── dist/               ← Build de producción (generado)
+├── index.html          ← Template HTML principal
+├── vite.config.js      ← Configuración de Vite
+├── package.json        ← Dependencias y scripts
+└── eslint.config.js    ← Configuración de ESLint
+```
+
+---
+
+## Scripts de Desarrollo
+
+```bash
+npm run dev      # Servidor de desarrollo con HMR
+npm run build    # Build optimizado para producción
+npm run preview  # Preview del build local
+npm run lint     # Revisar código con ESLint
 ```
 
 ---
@@ -44,5 +60,5 @@ portafolio/
 ## Contenido de esta Sección
 
 - **Stack Técnico** — Tecnologías y herramientas
-- **Implementación** — Código estructurado
+- **Implementación** — Componentes React y código
 - **Despliegue** — Publicación online
